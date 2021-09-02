@@ -6,6 +6,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     token: "",
+    fbAPIKey: "AIzaSyA0QwPM55uhp6pkzn7Di7KGKQ8Yf-V_Yhk",
   },
   mutations: {
     setToken(state, token) {
