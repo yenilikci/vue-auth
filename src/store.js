@@ -26,7 +26,7 @@ const store = new Vuex.Store({
         authLink =
           "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyA0QwPM55uhp6pkzn7Di7KGKQ8Yf-V_Yhk";
       }
-      axios
+      return axios
         .post(authLink, {
           email: authData.email,
           password: authData.password,
@@ -38,7 +38,11 @@ const store = new Vuex.Store({
     },
     logout({ commit, dispatch, state }) {},
   },
-  getters: {},
+  getters: {
+    isAuthenticated(state) {
+      return state.token !== "";
+    },
+  },
 });
 
 export default store;

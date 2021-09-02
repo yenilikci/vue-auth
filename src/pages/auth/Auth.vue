@@ -65,7 +65,11 @@
     },
     methods: {
       onSubmit() {
-        this.$store.dispatch("login", { ...this.user, isUser: this.isUser });
+        this.$store
+          .dispatch("login", { ...this.user, isUser: this.isUser })
+          .then((response) => {
+            this.$router.push("/");
+          });
       },
     },
   };
