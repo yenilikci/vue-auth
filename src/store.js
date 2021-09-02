@@ -36,7 +36,9 @@ const store = new Vuex.Store({
           commit("setToken", response.data.idToken);
         });
     },
-    logout({ commit, dispatch, state }) {},
+    logout({ commit, dispatch, state }) {
+      commit("clearToken");
+    },
   },
   getters: {
     isAuthenticated(state) {
