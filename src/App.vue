@@ -10,5 +10,8 @@
     components: {
       Header,
     },
+    created() {
+      this.$store.dispatch("initAuth");
+    },
   };
 </script>
