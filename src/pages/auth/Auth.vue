@@ -53,7 +53,6 @@
   </div>
 </template>
 <script>
-  import axios from "axios";
   export default {
     data() {
       return {
@@ -66,23 +65,7 @@
     },
     methods: {
       onSubmit() {
-        let authLink =
-          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyA0QwPM55uhp6pkzn7Di7KGKQ8Yf-V_Yhk";
-
-        if (this.isUser) {
-          authLink =
-            "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyA0QwPM55uhp6pkzn7Di7KGKQ8Yf-V_Yhk";
-        }
-        axios
-          .post(authLink, {
-            email: this.user.email,
-            password: this.user.password,
-            returnSecureToken: true,
-          })
-          .then((response) => {
-            console.log(response);
-          });
-        console.log(this.user);
+        this.$store.dispatch("login", { ...this.user, isUser: this.isUser });
       },
     },
   };
