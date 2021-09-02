@@ -3,12 +3,12 @@
     <a class="navbar-brand" href="#">Auth İşlemleri</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item" tag="li">
+        <router-link class="nav-item" tag="li" to="/">
           <a class="nav-link" href="#">Anasayfa</a>
-        </li>
-        <li class="nav-item">
+        </router-link>
+        <router-link class="nav-item" tag="li" to="/about">
           <a class="nav-link" href="#">Hakkımda</a>
-        </li>
+        </router-link>
       </ul>
       <ul class="navbar-nav my-2 my-lg-0" :class="logoutClass">
         <li class="nav-item">
@@ -21,15 +21,14 @@
 <script>
   export default {
     methods: {
-      logout() {
-      }
+      logout() {},
     },
     computed: {
       logoutClass() {
         return {
-          'd-none': false
-        }
-      }
-    }
-  }
+          "d-none": false,
+        };
+      },
+    },
+  };
 </script>
