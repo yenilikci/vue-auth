@@ -34,6 +34,7 @@ const store = new Vuex.Store({
         })
         .then((response) => {
           commit("setToken", response.data.idToken);
+          localStorage.setItem("token", response.data.idToken);
         });
     },
     logout({ commit, dispatch, state }) {
